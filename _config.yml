@@ -24,13 +24,13 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "default"
+      layout: "post"
   -
     scope:
       path: ""
       type: "drafts"
     values:
-      layout: "default"
+      layout: "post"
   -
     scope: # fallback on the default layout
       path: ""

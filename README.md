@@ -14,8 +14,6 @@ before using this one.
 To Do:
 ------
 
--   Set up alternative post listing styles (card, card-detail, images, text);
-
 -   Add breadcrumb navigation as an include.
 
 -   Add post information to individual layout (author, date, category, tags,
@@ -60,5 +58,8 @@ Modifications:
 
 -   using \_data/main.yml to for titles and landing content layout
 
--   had to change \#hash handling to force navigation to homepage. '\#work'
-    became '/\#work'. To allow for off-nav pages.
+-   \#hash handling changed to force navigation to homepage. '\#work' became
+    '/\#work'. To allow for off-nav pages.
+
+-   handled lists of documents in the post_list include with three *basic*
+    layouts: card, text, image.

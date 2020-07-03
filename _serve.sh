@@ -1,1 +1,1 @@
-jekyll serve --verbose
+jekyll serve --verbose --watch --incremental
