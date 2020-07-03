@@ -1,0 +1,19 @@
+# Use 'hash' to override the hash of internal content. Default: lowercase url encoded 'name'. The content is provided by the index_collection documents
+# Default 'icon': fa-link - https://fontawesome.com/cheatsheet
+# Default 'iconPrefix': 'fas' - https://fontawesome.com/v5.9.0/how-to-use/on-the-web/referencing-icons/basic-use
+# Default 'target': browser default (_self).
+# Use 'url' for external content. The index_collection will not be checked. Do not use this on the first item.
+- name: Home
+  icon: fa-home
+- name: Posts
+  icon: fa-file
+- name: About Me
+  hash: about
+  icon: fa-user
+- name: Contact
+  icon: fa-envelope
+- name: Github
+  url: https://github.com/jackcarey
+  icon: fa-github
+  iconPrefix: fab
+  target: _blank

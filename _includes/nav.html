@@ -1,0 +1,6 @@
+{% for link in site.data.navigation%}
+<a href="{%if link.url %}{{link.url}}{%else%}/#{% if link.hash %}{{link.hash}}{% else %}{{link.name | downcase | urlencode }}{% endif %}{% endif %}" 
+{%if link.target %}target="{{link.target | default: ""}}"{%endif%} class="{{link.iconPrefix | default: "fas"}} {{link.icon | default: "fa-link"}}">
+    <span>{{link.name}}</span>
+</a>
+{% endfor %}

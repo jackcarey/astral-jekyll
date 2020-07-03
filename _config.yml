@@ -1,0 +1,38 @@
+sass:
+  sass_dir: ./assets/sass/
+  style: compressed
+css:
+
+collections:
+  index_collection:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: "/"
+    values:
+      layout: "index"
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "pages"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "drafts"
+    values:
+      layout: "default"
+  -
+    scope: # fallback on the default layout
+      path: ""
+    values:
+      layout: "default"
