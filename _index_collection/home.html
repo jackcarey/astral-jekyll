@@ -1,6 +1,7 @@
 ---
 className: "intro"
 image: "/images/me.jpg"
+excerpt_separator: <!--more-->
 ---
 {% capture chevronLink %}
 {% if site.data.navigation[1].url %}
@@ -17,6 +18,7 @@ image: "/images/me.jpg"
     <h1>{{site.data.main.title}}</h1>
     <p>{{site.data.main.description}}</p>
 </header>
+<!--more-->
 <a href="{{chevronLink | strip}}" class="jumplink {%if site.data.main.landingImg %}pic{%endif%}">
     <span class="arrow icon solid fa-chevron-right"><span>{%if site.data.main.landingImg %}See {%endif%}{{site.data.navigation[1].name}}</span></span>
     {%if site.data.main.landingImg %}<img src="{{site.data.main.landingImg}}" alt="{{site.data.main.landingImg}}" />{%endif%}

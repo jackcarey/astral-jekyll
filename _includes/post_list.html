@@ -1,37 +1,41 @@
-{% assign documents = site[include.documents] | default: site.posts %}
-{% assign arrangement = include.arrangement |default: "images" %}
+{% assign documents = {{{{site[include.documents] | default: site.posts}} | sort: "title"}} %}
+{% assign arrangement = include.arrangement | default: "card" %}
 {% assign limit = include.limit | default: 0 %}
+{% assign xlarge = include.xlarge | default: 2 %}
 {% assign large = include.large | default: 4 %}
 {% assign medium = include.medium | default: 6 %}
 {% assign small = include.small | default: 12 %}
 {% assign filterable = include.filterable | default: false %}
 {% assign filter = include.filter | default: "" %}
 
-<!-- TODO: Add filters for tags,categories to assign commands -->
-
 <section>
     <div class="row">
-        {% assign docCount = 0 %}
         {% for document in documents %}
-        <div class="col-{{ large }} col-{{ medium }}-medium col-{{small}}-small">
+        <div class="col-{{ xlarge }}-xlarge col-{{ large }}-large col-{{ medium }}-medium col-{{small}}-small">
         {% case arrangement%}
             {%when "card" %}
-
-            {%when "card-detail" %}
-
+            {%if document.image %}
+            <a href="{{document.url}}" class="image fit">
+                <img src="{{document.image}}" alt="{{document.title || document.name}}">
+                <span>{{document.title || document.name}}</span>
+            </a>
+            {%else%}
+            <a href="{{document.url}}" style="text-align:center;vertical-align:middle;">{{document.title || document.name}}</a>
+            {%endif%}
+            {%when "text" %}
+                <a href="{{document.url}}" style="width:100%;text-align:center;vertical-align:middle;">{{document.title || document.name}}</a>
             {%else%}
             {%comment%} Default on "image" {%endcomment%}
             {%if document.image %}
             <a href="{{document.url}}" class="image fit"><img src="{{document.image}}" alt="{{document.title || document.name}}"></a>
             {%else%}
-            <a href="{{document.url}}" class="image fit" style="text-align:center;vertical-align:middle;">{{document.title || document.name}}</a>
+            <a href="{{document.url}}" style="text-align:center;vertical-align:middle;">{{document.title || document.name}}</a>
             {%endif%}
         {%endcase %}
         </div>
 
         {%comment %} End the loop if we have reached out limit {% endcomment %}
-        {% assign docCount = docCount + 1 %}
-        {% if limit > 0 and docCount >= limit %}
+        {% if limit > 0 and forloop.index >= limit %}
             {%break%}
         {%endif%}
         {% endfor %}
