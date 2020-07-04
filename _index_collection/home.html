@@ -7,9 +7,9 @@ image: "/images/me.jpg"
 {{site.data.navigation[1].url}}
 {%else%}
 {% if site.data.navigation[1].hash %}
-/#{{site.data.navigation[1].hash}}
+{{site.baseurl}}/#{{site.data.navigation[1].hash}}
 {% else %}
-/#{{site.data.navigation[1].name | downcase | urlencode }}
+{{site.baseurl}}/#{{site.data.navigation[1].name | downcase | urlencode }}
 {% endif %}
 {% endif %}
 {% endcapture %}
