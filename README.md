@@ -1,8 +1,10 @@
 astral-jekyll
 =============
 
-Original - Astral theme by HTML5 UP / Pixelarity:
---------------------------------------
+Conversion of [Astral](https://html5up.net/astral) for use with Jekyll and GitHub Pages.
+
+### Original - Astral theme by HTML5 UP / Pixelarity:
+
 
 * Original: [Astral - HTML5 UP](https://html5up.net/astral)
 * License: [Creative Commons Attribution 3.0 License](https://html5up.net/license)
@@ -11,13 +13,12 @@ For attribution free use, go to:
 * [Astral - Pixelarity](https://pixelarity.com/astral)
 * [License](https://pixelarity.com/license)
 
-To Do:
---------------
+### To Do:
+
 - Improve caching in pwa.js
 - Add image / FA icon replacement to category and tag links
 
-Modifications:
---------------
+### Modifications:
 
 -   Navigation links are set up in navigation.yml data file.
 
