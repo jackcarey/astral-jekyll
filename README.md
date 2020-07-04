@@ -11,11 +11,7 @@ Original - Astral theme by Pixelarity:
  You should obtain the correct permission to use the original theme and files
 before using this one.
 
-To Do:
-------
-
--   Add breadcrumb navigation as an include. Include back link and breadcrumbs
-    for existing pages
+ 
 
 Modifications:
 --------------
