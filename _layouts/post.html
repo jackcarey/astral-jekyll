@@ -1,3 +1,21 @@
+{% capture strList %}
+{%assign str = "" %}
+{%comment%}Make a string of unique categories and tags across the site{%endcomment%}
+{%for cat in page.categories %}
+{% if str contains cat %}{%else%}
+{%assign str = {{str | append: cat | append: ","}} %}
+{%endif%}
+{%endfor%}
+{%for tag in page.tags %}
+{% if str contains tag %}{%else%}
+{%assign str = {{str | append: tag | append: ","}} %}
+
+{%endif%}
+{%endfor%}
+{{str}}
+{% endcapture%}
+{%comment%}Remove the whitespace and turn it into an indexable array{%endcomment%}
+{% assign strList = {{strList| strip | split: "," | sort}} %}
 <!DOCTYPE HTML>
 <html>
 
@@ -24,7 +42,11 @@
                         {%if page.author %}{{page.author}} - {%endif%}{{page.date | date: "%d %b %Y"}}
                     </p>
                     {%if page.categories or page.tags %}
-                    <p style="font-size:small">{%if page.categories %}{%for c in page.categories%}<a href="/browse.html strip | downcase | urlencode}}">{{c}}</a> {%endfor%}{%endif%}{%if page.categories and page.tags %} | {%endif%}{%if page.tags %}{%for t in page.tags %}<a href="/browse#{{t| strip | downcase | urlencode}}">{{t}}</a> {%endfor%}{%endif%}</p>
+                    <p style="font-size:small">
+                        {%for str in strList %}
+                            <a href="/browse#{{str}}">{{str}}</a> 
+                        {%endfor%}                    
+                    </p>
                     {%endif%}
                 </header>
                 {{content}}

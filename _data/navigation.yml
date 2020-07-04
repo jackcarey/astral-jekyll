@@ -5,7 +5,7 @@
 # Use 'url' for external content. The index_collection will not be checked. Do not use this on the first item.
 - name: Home
   icon: fa-home
-- name: Posts
+- name: Work
   icon: fa-file
 - name: About Me
   hash: about
@@ -17,3 +17,7 @@
   icon: fa-github
   iconPrefix: fab
   target: _blank
+- name: Browse
+  url: /browse
+  icon: fa-book-open
+

@@ -17,8 +17,6 @@ To Do:
 -   Add breadcrumb navigation as an include. Include back link and breadcrumbs
     for existing pages
 
--   Add links to categories and tags
-
 Modifications:
 --------------
 
@@ -43,6 +41,12 @@ Modifications:
     content. This allows you to edit the sections as separate files, not one
     continuous block of HTML.
 
+-   hash handling changed to force navigation to homepage. '\#work' became
+    '/\#work'. To allow for off-nav pages.
+
+-   Filter categories and tags on /browse. Uses the same ‘articles’ layout as
+    the index page.
+
 -   CSS
 
     -   Links have been refactored to use the sass folder.
@@ -53,13 +57,8 @@ Modifications:
 
     -   Some minor changes to font awesome handling in nav links and CSS
 
--   added file caching in pwa.js. cache first then network update method.
+-   Added file caching in pwa.js. cache first then network update method.
     disabled by default to allow easier development
-
--   using \_data/main.yml to for titles and landing content layout
-
--   \#hash handling changed to force navigation to homepage. '\#work' became
-    '/\#work'. To allow for off-nav pages.
 
 -   handled lists of documents in the post_list include with three *basic*
     layouts: card, text, image.

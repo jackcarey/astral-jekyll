@@ -1,4 +1,5 @@
 ---
+title: "Browse"
 layout: "articles"
 ---
 {% capture strList %}
@@ -20,10 +21,17 @@ layout: "articles"
 {%comment%}Remove the whitespace and turn it into an indexable array{%endcomment%}
 {% assign strList = {{strList| strip | split: "," | sort}} %}
 
+<div id="browseLinks" style="padding:0.25em;font-size:small;">
+    <span style="padding-left:1em;font-size:large;vertical-align:bottom; ">Browse: </span>
+    {%for str in strList %}
+    <a href="#{{ str | strip | downcase | urlencode }}">{{str | strip | downcase}}</a>
+    {%endfor%}
+</div>
 {%comment%}For every item in the array{%endcomment%}
 {%for str in strList %}
 <article id="{{ str | strip | downcase | urlencode }}" class="panel">
     <h4>{{str|strip|capitalize}}</h4>
+    <br />
     <ul style="list-style: none;">
         {%comment%}grab posts by category AND tag {%endcomment%}
         {%assign catPosts = site.categories[str] %}
@@ -82,17 +90,31 @@ layout: "articles"
 </article>
 {%endfor%}
 <article id="noResults" class="panel">
-    <h4>No results match this category/tag, sorry.</h4>
+    <h4>No results match found <span id="noResStr">for this category/tag</span>, sorry.</h4>
 </article>
 <script>
     function displayPanel() {
         //only display the filtered panel
         var hash = (window.location.hash || "#").substring(1);
+        console.log("hash:" + hash);
         var count = 0;
+
+        //reset all link styles
+        document.querySelectorAll("#browseLinks a:not([href='" + window.location.hash + "'])").forEach(function (item, index, itemObj) {
+            item.style.fontWeight = "initial";
+        });
+
         //if there is a URL hash
-        if (hash) {
+        if (hash != "") {
+            //highlight the selected filter in the browse list
+            var browseLink = document.querySelector("#browseLinks a[href='#" + hash + "']")
+            if (browseLink) {
+                browseLink.style.fontWeight = "bold";
+            }
+
             //get all articles
             var sections = document.querySelectorAll("article");
+            var changedSections = [];
             for (var i = 0; i < sections.length; ++i) {
                 var id = sections[i].getAttribute("id");
                 //hide/display the article if the id matches the hash
@@ -102,7 +124,11 @@ layout: "articles"
             }
         }
         //if no panels are active, show the noResults panel
-        document.getElementById("noResults").style = "padding:3em;" + (hash && !count ? "display:block;" : "display:none;");
+        document.getElementById("noResults").style = "padding:3em;" + (hash != "" && !count ? "display:block;" : "display:none;");
+        const noResStr = document.getElementById("noResStr")
+        noResStr.innerText = "for " + (hash != "" && !count ? "'" + hash + "'" : "this category/tag");
+        noResStr.style.fontStyle = (hash != "" && !count ? "italic" : "none");
+        document.title = (hash == "" && !count ? "Browse" : hash.substring(0,1).toUpperCase()+hash.substring(1).toLowerCase()) + " | {{site.data.main.title}}";
     }
     function sortLists() {
         //grab all lists
@@ -113,9 +139,9 @@ layout: "articles"
             items.forEach(function (li, liIndex, itemObj) {
                 const thisID = li.dataset.postid;
                 const nextID = liIndex + 1 < items.length ? items[liIndex + 1].dataset.postid : "";
-                //if this id is greater than the next one, swap them
-                if (nextID && thisID > nextID) {
-                    li.parentNode.insertBefore(items[liIndex+1],li);
+                //if this id is less than the next one, swap them for descending order
+                if (nextID && thisID < nextID) {
+                    li.parentNode.insertBefore(items[liIndex + 1], li);
                 }
             });
         });
