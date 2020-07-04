@@ -14,10 +14,10 @@ before using this one.
 To Do:
 ------
 
--   Add breadcrumb navigation as an include.
+-   Add breadcrumb navigation as an include. Include back link and breadcrumbs
+    for existing pages
 
--   Add post information to individual layout (author, date, category, tags,
-    etc)
+-   Add links to categories and tags
 
 Modifications:
 --------------

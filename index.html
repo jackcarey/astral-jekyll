@@ -1,7 +1,20 @@
 ---
 title: Astral Jekyll
-layout: index
+layout: articles
 ---
 <!--
     Content on this page will not be rendered. Add documents to the index_collection instead.
 -->
+{% for item in site.index_collection %}
+{%capture itemRef %}
+    {% if item.hash %}
+        {{item.hash}}
+    {% else %}
+        {{item.title | downcase | urlencode }}
+    {% endif %}
+{%endcapture%}
+{% assign itemRef = itemRef | strip %}
+<article id="{{ itemRef | strip }}" class="panel {{item.className | default:""}}">
+    {{item.content}}
+</article>
+{%endfor%}

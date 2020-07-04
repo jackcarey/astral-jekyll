@@ -17,16 +17,10 @@
 
         <!-- Main -->
         <div id="main">
-            <article {%if page.id%}id="{{page.id}}"{%endif%} class="panel {{page.className | default:""}}">
-                {{content}}
-                <br/>
-                {% include post_list.html collection={{ page.collection }} %}
-            </article>
+            {{content}}
         </div>
-
         <!-- Footer -->
         {% include footer.html %}
-
     </div>
     <!-- Scripts -->
     {% include scripts.html %}
