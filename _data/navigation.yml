@@ -13,7 +13,7 @@
 - name: Contact
   icon: fa-envelope
 - name: Github
-  url: https://github.com/jackcarey
+  url: https://github.com/jackcarey/astral-jekyll
   icon: fa-github
   iconPrefix: fab
   target: _blank
