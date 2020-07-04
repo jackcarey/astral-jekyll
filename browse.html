@@ -24,13 +24,19 @@ layout: "articles"
 <div id="browseLinks" style="padding:0.25em;font-size:small;">
     <span style="padding-left:1em;font-size:large;vertical-align:bottom; ">Browse: </span>
     {%for str in strList %}
-    <a href="#{{ str | strip | downcase | urlencode }}">{{str | strip | downcase}}</a>
+    <a href="#{{ str | strip | downcase | urlencode }}">{%include replace_label.html label=str %}</a>
     {%endfor%}
 </div>
 {%comment%}For every item in the array{%endcomment%}
 {%for str in strList %}
 <article id="{{ str | strip | downcase | urlencode }}" class="panel">
-    <h4>{{str|strip|capitalize}}</h4>
+    {%capture label%}
+        {%include replace_label.html label=str %}
+    {%endcapture%}
+    {%comment%}Remove all unnecessary space around label and str {%endcomment%}
+    {%capture lbl%}{{label|strip_newlines|strip_html|strip}}{%endcapture%}
+    {%capture strStrip%}{{str|strip_newlines|strip_html|strip}}{%endcapture%}
+    <h4>{%if lbl == strStrip %}{%else%}{{label}} {%endif%}{{str|strip|capitalize}}</h4>
     <br />
     <ul style="list-style: none;">
         {%comment%}grab posts by category AND tag {%endcomment%}
@@ -96,7 +102,6 @@ layout: "articles"
     function displayPanel() {
         //only display the filtered panel
         var hash = (window.location.hash || "#").substring(1);
-        console.log("hash:" + hash);
         var count = 0;
 
         //reset all link styles

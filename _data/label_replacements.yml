@@ -1,0 +1,16 @@
+# use icons in place of text for categories and tags
+# name = the category/tag
+# text = Text to replace the label with.
+# icon = font awesome icon - https://fontawesome.com/cheatsheet. If different from name. Replaces 'text'.
+# iconPrefix = font awesome icon prefix. Default: 'fas'. - https://fontawesome.com/v5.9.0/how-to-use/on-the-web/referencing-icons/basic-use
+# url = the URL of an image file to use instead of an icon. Replaces 'icon' and 'text'.
+- name: apple
+  icon: apple-alt
+- name: cat
+  icon: cat
+- name: dog
+  icon: dog
+- name: banana
+  url: https://upload.wikimedia.org/wikipedia/commons/4/44/Bananas_white_background_DS.jpg
+- name: melon
+  text: "🍉"

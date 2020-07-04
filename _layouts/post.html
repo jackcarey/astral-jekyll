@@ -44,7 +44,7 @@
                     {%if page.categories or page.tags %}
                     <p style="font-size:small">
                         {%for str in strList %}
-                            <a href="{{site.baseurl}}/browse#{{str}}">{{str}}</a> 
+                            <a href="{{site.baseurl}}/browse#{{str}}">{%include replace_label.html label=str %}</a> 
                         {%endfor%}                    
                     </p>
                     {%endif%}
