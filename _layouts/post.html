@@ -24,7 +24,7 @@
                         {%if page.author %}{{page.author}} - {%endif%}{{page.date | date: "%d %b %Y"}}
                     </p>
                     {%if page.categories or page.tags %}
-                    <p style="font-size:small">{%if page.categories %}{%for c in page.categories%}<a href="/filter#{{c}}">{{c}}</a> {%endfor%}{%endif%}{%if page.categories and page.tags %} | {%endif%}{%if page.tags %}{%for t in page.tags%}<a href="/filter#{{t}}">{{t}}</a> {%endfor%}{%endif%}</p>
+                    <p style="font-size:small">{%if page.categories %}{%for c in page.categories%}<a href="/browse.html strip | downcase | urlencode}}">{{c}}</a> {%endfor%}{%endif%}{%if page.categories and page.tags %} | {%endif%}{%if page.tags %}{%for t in page.tags %}<a href="/browse#{{t| strip | downcase | urlencode}}">{{t}}</a> {%endfor%}{%endif%}</p>
                     {%endif%}
                 </header>
                 {{content}}

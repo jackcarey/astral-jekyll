@@ -4,8 +4,12 @@ sass:
 css:
 
 collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
   index_collection:
     output: true
+    permalink: /#:title
 
 defaults:
   -
