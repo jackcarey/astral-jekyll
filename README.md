@@ -1,17 +1,20 @@
 astral-jekyll
 =============
 
-Original - Astral theme by Pixelarity:
+Original - Astral theme by HTML5 UP / Pixelarity:
 --------------------------------------
 
--   Link: https://pixelarity.com/astral
+* Original: [Astral - HTML5 UP](https://html5up.net/astral)
+* License: [Creative Commons Attribution 3.0 License](https://html5up.net/license)
 
--   License: https://pixelarity.com/license
+For attribution free use, go to:
+* [Astral - Pixelarity](https://pixelarity.com/astral)
+* [License](https://pixelarity.com/license)
 
- You should obtain the correct permission to use the original theme and files
-before using this one.
-
- 
+To Do:
+--------------
+- Improve caching in pwa.js
+- Add image / FA icon replacement to category and tag links
 
 Modifications:
 --------------
@@ -40,7 +43,7 @@ Modifications:
 -   hash handling changed to force navigation to homepage. '\#work' became
     '/\#work'. To allow for off-nav pages.
 
--   Filter categories and tags on /browse. Uses the same ‘articles’ layout as
+-   Browse page: filter categories and tags. Uses the same ‘articles’ layout as
     the index page.
 
 -   CSS
