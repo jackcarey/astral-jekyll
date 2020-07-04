@@ -20,5 +20,5 @@ image: "/images/me.jpg"
 </header>
 <a href="{{chevronLink | strip}}" class="jumplink {%if site.data.main.landingImg %}pic{%endif%}">
     <span class="arrow icon solid fa-chevron-right"><span>{%if site.data.main.landingImg %}See {%endif%}{{site.data.navigation[1].name}}</span></span>
-    {%if site.data.main.landingImg %}<img src="{{site.data.main.landingImg}}" alt="{{site.data.main.landingImg}}" />{%endif%}
+    {%if site.data.main.landingImg %}<img src="{{site.baseurl}}{{site.data.main.landingImg}}" alt="{{site.data.main.landingImg}}" />{%endif%}
 </a>

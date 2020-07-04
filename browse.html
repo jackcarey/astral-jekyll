@@ -43,9 +43,9 @@ layout: "articles"
         {%if listed contains postID%}{%else%}
 
         <li data-postid="{{postID}}">
-            <a href="{{p.url}}" style="text-decoration:none;display:flex;justify-content: left;">
+            <a href="{{site.baseurl}}{{p.url}}" style="text-decoration:none;display:flex;justify-content: left;">
                 {% if p.img %}
-                <img src="{{p.img}}" class="image fit" style="padding:0.25em;display:inline;height:3em;width:3em;" />
+                <img src="{{site.baseurl}}{{p.img}}" class="image fit" style="padding:0.25em;display:inline;height:3em;width:3em;" />
                 {%else%}
                 <span style="padding:0.25em;display:inline;width:3em;height:3em;"></span>
                 {%endif%}
@@ -67,9 +67,9 @@ layout: "articles"
         {%if listed contains postID%}{%else%}
 
         <li data-postid="{{postID}}">
-            <a href="{{p.url}}" style="text-decoration:none;display:flex;justify-content: left;">
+            <a href="{{site.baseurl}}{{p.url}}" style="text-decoration:none;display:flex;justify-content: left;">
                 {% if p.img %}
-                <img src="{{p.img}}" class="image fit" style="padding:0.25em;display:inline;height:3em;width:3em;" />
+                <img src="{{site.baseurl}}{{p.img}}" class="image fit" style="padding:0.25em;display:inline;height:3em;width:3em;" />
                 {%else%}
                 <span style="padding:0.25em;display:inline;width:3em;height:3em;"></span>
                 {%endif%}

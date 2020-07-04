@@ -1,3 +1,6 @@
+url: https://jackcarey.github.io
+baseurl: /astral-jekyll
+
 sass:
   sass_dir: ./assets/sass/
   style: compressed

@@ -29,7 +29,7 @@
 			var href = $(this).attr('href');
 
 			// Not a panel link? Bail.
-			if (href.substring(0, 3) != '/#' || $panels.filter(href).length == 0)
+			if (href.substring(0, 3) != '/astral-jekyll/#' || $panels.filter(href).length == 0)
 				return;
 
 			// Prevent default.
@@ -46,7 +46,7 @@
 	// Initialize.
 	(function () {
 		//We only need to initialize the panels and links if we're on the index page
-		if (window.location.pathname == "/") {
+		if (window.location.pathname == "/astral-jekyll/") {
 
 			var $panel, $link;
 
@@ -54,7 +54,7 @@
 			if (window.location.hash) {
 
 				$panel = $panels.filter(window.location.hash);
-				$link = $nav_links.filter('[href="/' + window.location.hash + '"]');
+				$link = $nav_links.filter('[href="/astral-jekyll/' + window.location.hash + '"]');
 
 			}
 
@@ -62,7 +62,7 @@
 			if (!$panel || $panel.length == 0) {
 
 				$link = $nav_links.first();
-				$panel = $panels.filter(`[id='${$link.attr("href").substring(2)}']`);
+				$panel = $panels.filter(`[id='${$link.attr("href").replace("/astral-jekyll","").substring(2)}']`);
 
 			}
 

@@ -18,6 +18,6 @@
   iconPrefix: fab
   target: _blank
 - name: Browse
-  url: /browse
+  url: /astral-jekyll/browse
   icon: fa-book-open
 
