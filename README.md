@@ -1,7 +1,7 @@
 astral-jekyll
 =============
 
-Conversion of [Astral](https://html5up.net/astral) for use with Jekyll and
+Quick and dirty conversion of [Astral](https://html5up.net/astral) for use with Jekyll and
 GitHub Pages.
 
 ### Original - Astral theme by HTML5 UP / Pixelarity:
@@ -11,9 +11,10 @@ GitHub Pages.
 -   License: [Creative Commons Attribution 3.0
     License](https://html5up.net/license)
 
-For attribution free use, go to: \* [Astral -
-Pixelarity](https://pixelarity.com/astral) \*
-[License](https://pixelarity.com/license)
+For attribution free use, go to: 
+
+* [Astral - Pixelarity](https://pixelarity.com/astral)
+* [License](https://pixelarity.com/license)
 
 ### To Do:
 
